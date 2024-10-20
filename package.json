@@ -1,0 +1,28 @@
+{
+  "name": "apint-components",
+  "version": "1.0.0",
+  "description": "A component library for pragmatic simplicity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lit-html": "^3.2.1"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.9.0",
+    "@storybook/addon-essentials": "^8.3.6",
+    "@storybook/addon-links": "^8.3.6",
+    "@storybook/blocks": "^8.3.6",
+    "@storybook/test": "^8.3.6",
+    "@storybook/web-components": "^8.3.6",
+    "@storybook/web-components-vite": "^8.3.6",
+    "lit": "^3.2.1",
+    "storybook": "^8.3.6",
+    "vite": "^5.4.9"
+  }
+}
