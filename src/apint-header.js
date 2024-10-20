@@ -21,8 +21,10 @@ export class ApintHeader extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this[name] = newValue;
-    this.update();
+    if (newValue !== oldValue) {
+      this[name] = newValue;
+      this.update();
+    }
   }
 
   inc() {

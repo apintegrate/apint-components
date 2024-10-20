@@ -1,8 +1,8 @@
 {
   "name": "apint-components",
-  "version": "1.0.0",
-  "description": "A component library for pragmatic simplicity.",
-  "main": "index.js",
+  "version": "0.3.2",
+  "description": "A component library for pragmatic, simple user interfaces.",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",

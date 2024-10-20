@@ -5,6 +5,9 @@ export class ApintCard extends HTMLElement {
     super();
     this.title = "";
     this.image = "";
+    this.bylineleft = "";
+    this.bylineright = "";
+    this.bylinerightimage = ""
     this.description = "";
     this.href = "";
     this.toplefttext = "";
@@ -16,12 +19,14 @@ export class ApintCard extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['title', 'image', 'description', 'href', 'toplefttext'];
+    return ['title', 'image', 'bylineleft', 'bylineright', 'bylinerightimage', 'description', 'href', 'toplefttext'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this[name] = newValue;
-    this.update();
+    if (newValue !== oldValue) {
+      this[name] = newValue;
+      this.update();
+    }
   }
 
   style() {
@@ -38,7 +43,7 @@ export class ApintCard extends HTMLElement {
         padding: 16px 20px;
         transition: box-shadow 0.2s ease 0s;
         width: 246px;
-        height: 316px;
+        height: 378px;
         margin: 14px;
         position: relative;
         font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -79,15 +84,29 @@ export class ApintCard extends HTMLElement {
         margin-top: 10px;
         font-size: 18px;
         font-weight: 500;
-        text-decoration: none;
-        -webkit-text-decorations-: none;
+        max-height: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
       }
 
-      .card_subtitle {
+      .card_byline {
         margin-top: 2px;
+        margin-right: 1px;
         font-size: 13px;
         font-weight: 300;
         color: rgb(0,0,0,.66);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .card_byline_right_image {
+        height: 18px;
+        position: relative;
+        top: 4px;
       }
 
       .card_description {
@@ -205,6 +224,11 @@ export class ApintCard extends HTMLElement {
         <img src=${this.image} class="card_hero"></img>
         <div class="card_title">
           ${this.title}
+        </div>
+        <div class="card_byline">
+          ${this.bylineleft ? html`<span>${this.bylineleft}</span>` : ""}
+          ${this.bylinerightimage ? html`<img src=${this.bylinerightimage} class="card_byline_right_image"></img>` : ""}
+          ${this.bylineright ? html`<span>${this.bylineright}</span>` : ""}
         </div>
         <div class="card_description">
           ${this.description}
