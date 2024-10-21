@@ -2,11 +2,16 @@
   "name": "apint-components",
   "version": "0.3.2",
   "description": "A component library for pragmatic, simple user interfaces.",
-  "main": "src/index.js",
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build": "vite build",
+    "build-parcel": "parcel build src/index.js",
+    "build-rollup": "rollup src/index.js --file dist/bundle.js --format es"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +20,8 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
+    "@parcel/compressor-brotli": "^2.12.0",
+    "@parcel/compressor-gzip": "^2.12.0",
     "@storybook/addon-essentials": "^8.3.6",
     "@storybook/addon-links": "^8.3.6",
     "@storybook/blocks": "^8.3.6",
@@ -23,6 +30,7 @@
     "@storybook/web-components-vite": "^8.3.6",
     "lit": "^3.2.1",
     "storybook": "^8.3.6",
-    "vite": "^5.4.9"
+    "vite": "^5.4.9",
+    "vite-plugin-compression": "^0.5.1"
   }
 }

@@ -5,6 +5,7 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 export class ApintPage extends HTMLElement {
   constructor() {
     super();
+    this.title = "Apint.org";
     this.attachShadow({ mode: 'open' });
   }
 
@@ -13,7 +14,7 @@ export class ApintPage extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return [];
+    return ["title"];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -50,6 +51,7 @@ export class ApintPage extends HTMLElement {
         flex-flow: row wrap;
         margin: 4px 4px 14px 4px;
         width: 100%;
+        justify-content: center;
       }
 
       .page p {
@@ -113,7 +115,7 @@ export class ApintPage extends HTMLElement {
       </style>
       <article>
         
-        <apint-header></apint-header>
+        <apint-header title=${this.title}></apint-header>
 
         <section class="page">
           ${unsafeHTML(this.getHTML())}

@@ -4,6 +4,7 @@ import "./apint-button"
 export class ApintHeader extends HTMLElement {
   constructor() {
     super();
+    this.title = "Apint.org";
     this.supportuser = "false";
     this.user = undefined;
     this.onLogin = undefined;
@@ -17,7 +18,7 @@ export class ApintHeader extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['supportuser', 'user', 'onLogin', 'onLogout', 'onCreateAccount'];
+    return ['title', 'supportuser', 'user', 'onLogin', 'onLogout', 'onCreateAccount'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -98,7 +99,7 @@ export class ApintHeader extends HTMLElement {
                 />
               </g>
             </svg>
-            <h1>Apint.org</h1>
+            <h1>${this.title}</h1>
           </div>
           <div>
             ${this.supportuser === "true" && this.user ? html`<apint-button type="primary">Log out</apint-button>`
